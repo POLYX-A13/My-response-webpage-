@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WhatsApp Account Guide</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .step {
+            display: none;
+        }
+
+        .step.active {
+            display: block;
+        }
+
+        button {
+            padding: 12px 20px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .warning {
+            padding: 15px;
+            border: 1px solid #999;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>WhatsApp Account Guide</h1>
+
+    <div class="warning">
+        <strong>Important:</strong>
+        this action will take your WhatsApp account 
+        to the next WhatsApp experience.
+
+    </div>
+
+    <!-- STEP 1 -->
+    <div id="step1" class="step active">
+        <h2>Step 1</h2>
+        <p>When you're ready, open WhatsApp.</p>
+
+        <button onclick="openWhatsApp()">
+            Open WhatsApp
+        </button>
+
+        <button onclick="nextStep(2)">
+            I've opened WhatsApp
+        </button>
+    </div>
+
+    <!-- STEP 2 -->
+    <div id="step2" class="step">
+        <h2>Step 2</h2>
+
+        <p>
+            Open WhatsApp's Settings.
+            Look for the Settings option in WhatsApp.
+        </p>
+
+        <button onclick="nextStep(3)">
+            I've opened Settings
+        </button>
+    </div>
+
+    <!-- STEP 3 -->
+    <div id="step3" class="step">
+        <h2>Step 3</h2>
+
+        <p>
+            Tap <strong>Account</strong>.
+        </p>
+
+        <button onclick="nextStep(4)">
+            I've opened Account
+        </button>
+    </div>
+
+    <!-- STEP 4 -->
+    <div id="step4" class="step">
+        <h2>Step 4</h2>
+
+        <p>
+            Look for <strong>Delete my account</strong>.
+        </p>
+
+        <button onclick="nextStep(5)">
+            I've found it
+        </button>
+    </div>
+
+    <!-- STEP 5 -->
+    <div id="step5" class="step">
+        <h2>Final Step</h2>
+
+        <p>
+            Carefully read WhatsApp's warning and instructions.
+            If you still want to delete the account, follow
+            WhatsApp's confirmation process.
+        </p>
+
+        <button onclick="finish()">
+            Finish
+        </button>
+    </div>
+
+    <script>
+
+        function nextStep(stepNumber) {
+
+            document.querySelectorAll(".step").forEach(function(step) {
+                step.classList.remove("active");
+            });
+
+            document.getElementById("step" + stepNumber)
+                .classList.add("active");
+        }
+
+
+        function openWhatsApp() {
+
+            window.location.href = "whatsapp://";
+        }
+
+
+        function finish() {
+
+            alert("Guide completed.");
+        }
+
+    </script>
+
+</body>
+</html>
